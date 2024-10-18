@@ -264,7 +264,7 @@ const VehicleForm: React.FC = () => {
           <Button type="submit" disabled={loading}>
             {loading ? "Uploading..." : "Submit"}
           </Button>
-          {errors.api && <p className="text-red-500 text-xs">{errors.api.message}</p>}
+          {errors.api && <p className="text-red-500 text-xs">{errors.api.message}</p>}  
 
         </form>
       </div>

@@ -7,6 +7,7 @@ export const vehicleForm = async (formData:any) => {
     const response = await axios.post(`${API_URL}/vehicles`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },    
       });
 
