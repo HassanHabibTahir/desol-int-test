@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { User } from "../models";
-// const JWT_SECRET=process.env.JWT_SECRET as string
-const JWT_SECRET ="45678909876567890987656789"
+const JWT_SECRET=process.env.JWT_SECRET as string
+// const JWT_SECRET ="45678909876567890987656789"
 export interface AuthenticatedRequest extends Request {
   user?: any; 
 }
