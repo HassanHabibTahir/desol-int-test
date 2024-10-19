@@ -15,8 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.authenticateUser = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const models_1 = require("../models");
-// const JWT_SECRET=process.env.JWT_SECRET as string
-const JWT_SECRET = "45678909876567890987656789";
+const JWT_SECRET = process.env.JWT_SECRET;
 const authenticateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(" ")[1];
