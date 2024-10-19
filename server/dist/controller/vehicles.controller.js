@@ -15,10 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vehicles = void 0;
 const vehicle_1 = __importDefault(require("../models/vehicle"));
 const Vehicles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
         try {
+            const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a.id;
             const { carModel, price, phoneNumber, maxPictures, city } = req.body;
-            // Ensure files are uploaded
             if (!req.files || !req.files.pictures) {
                 return res.status(400).send({ message: 'No files were uploaded.' });
             }
@@ -38,7 +39,8 @@ const Vehicles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 phoneNumber,
                 maxPictures,
                 city,
-                pictures, // Store image buffers in MongoDB
+                pictures,
+                user: userId,
             });
             // Save to the database
             yield vehicleImage.save();

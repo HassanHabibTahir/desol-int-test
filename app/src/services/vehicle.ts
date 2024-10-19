@@ -11,7 +11,7 @@ export const vehicleForm = async (formData:any) => {
         },    
       });
 
-    return response; // This will contain the token and message
+    return response; 
   } catch (error: any) {
     // Handle error as needed
     if (error.response) {

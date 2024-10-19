@@ -32,6 +32,7 @@ const VehicleSchema = new mongoose_1.Schema({
     city: { type: String, required: true },
     pictures: { type: [Buffer], required: true },
     createdAt: { type: Date, default: Date.now },
+    user: { type: mongoose_1.Schema.Types.ObjectId, ref: "User", required: false },
 });
 const VehicleModel = mongoose_1.default.model('Vehicles', VehicleSchema);
 exports.default = VehicleModel;

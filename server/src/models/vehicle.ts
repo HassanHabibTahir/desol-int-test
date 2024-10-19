@@ -18,6 +18,8 @@ const VehicleSchema: Schema = new Schema({
   city: { type: String, required: true },
   pictures: { type: [Buffer], required: true }, 
   createdAt: { type: Date, default: Date.now },
+  user: { type: Schema.Types.ObjectId, ref: "User", required: false },
+
 });
 
 const VehicleModel = mongoose.model<IVehicle>('Vehicles', VehicleSchema);

@@ -67,7 +67,7 @@ const VehicleForm: React.FC = () => {
        const response = await vehicleForm(formData);
         console.log("Response:", response.data);
         setSelectedFiles([]);
-        reset();
+        reset(); 
         clearErrors();
       } catch (error) {
         console.error("Error uploading data:", error);
@@ -98,6 +98,7 @@ const VehicleForm: React.FC = () => {
         clearErrors("pictures");
         return newFiles;
       });
+      event.target.value = '';
     }
   };
 
@@ -107,7 +108,7 @@ const VehicleForm: React.FC = () => {
         <img
           src={URL.createObjectURL(file)}
           alt={`Thumbnail ${index + 1}`}
-          className="w-10 h-10 object-cover"
+          className="h-[100%] w-[100%] object-cover"
         />
       </div>
     ));
@@ -122,7 +123,7 @@ const VehicleForm: React.FC = () => {
           Submit Vehicle Information
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div className="space-x-4">
+          <div >
             <div className="flex-1">
               <Input
                 id="carModel"

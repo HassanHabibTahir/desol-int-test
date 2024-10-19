@@ -5,9 +5,10 @@ import fileUpload, { UploadedFile } from 'express-fileupload';
 export const Vehicles = async (req: any, res: Response): Promise<any> => {
   try {
     try {
+      const userId = req.user?.id;
+    
         const { carModel, price, phoneNumber, maxPictures, city } = req.body;
     
-        // Ensure files are uploaded
         if (!req.files || !req.files.pictures) {
           return res.status(400).send({ message: 'No files were uploaded.' });
         }
@@ -32,7 +33,8 @@ export const Vehicles = async (req: any, res: Response): Promise<any> => {
           phoneNumber,
           maxPictures,
           city,
-          pictures, // Store image buffers in MongoDB
+          pictures,
+          user: userId, 
         });
     
         // Save to the database
