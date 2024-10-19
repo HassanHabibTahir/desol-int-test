@@ -2,7 +2,6 @@
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { vehicleForm } from "@/services/vehicle";
-import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -19,7 +18,6 @@ interface VehicleFormData {
 const VehicleForm: React.FC = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [apiError, setApiError] = useState<string | null>(null); // State for API error message
 
   const {
     register,
@@ -119,11 +117,7 @@ const VehicleForm: React.FC = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-5">
       <div className="bg-white shadow-lg rounded-lg p-8 w-[100%] ">
-      {apiError && ( // Show API error at the top
-          <div className="bg-red-100 text-red-800 p-4 rounded mb-4">
-            {apiError}
-          </div>
-        )}
+ 
         <h2 className="text-2xl font-bold text-center mb-5">
           Submit Vehicle Information
         </h2>
