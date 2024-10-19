@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import { User } from "../models";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-const JWT_SECRET=process.env.JWT_SECRET as string;
+// const JWT_SECRET=process.env.JWT_SECRET as string;
+const JWT_SECRET ="45678909876567890987656789"
 export const loginuser = async (req: Request, res: Response): Promise<any> => {
   try {
     const { email, password } = req.body;

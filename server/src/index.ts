@@ -9,7 +9,7 @@ import { vehilesRoutes } from './routes/vehicles.routes';
 import fileUpload, { UploadedFile } from 'express-fileupload';
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(timeout('60000s'));

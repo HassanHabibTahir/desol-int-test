@@ -16,7 +16,8 @@ exports.loginuser = void 0;
 const models_1 = require("../models");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const JWT_SECRET = process.env.JWT_SECRET;
+// const JWT_SECRET=process.env.JWT_SECRET as string;
+const JWT_SECRET = "45678909876567890987656789";
 const loginuser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { email, password } = req.body;

@@ -22,7 +22,7 @@ const conn_1 = require("./utils/conn");
 const vehicles_routes_1 = require("./routes/vehicles.routes");
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
 const app = (0, express_1.default)();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
 app.use((0, connect_timeout_1.default)('60000s'));

@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.authenticateUser = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const models_1 = require("../models");
+// const JWT_SECRET=process.env.JWT_SECRET as string
+const JWT_SECRET = "45678909876567890987656789";
 const authenticateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(" ")[1];
@@ -22,7 +24,7 @@ const authenticateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         return res.status(401).json({ message: "No token provided, authorization denied." });
     }
     try {
-        const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+        const decoded = jsonwebtoken_1.default.verify(token, JWT_SECRET);
         const user = yield models_1.User.findById(decoded.userId).select("-password");
         if (!user) {
             return res.status(404).json({ message: "User not found." });
